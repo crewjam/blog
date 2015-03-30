@@ -63,7 +63,7 @@ I sifted through the APIs a bit and came to the conclusion that we needed to hos
  - Alternatively we pass their temporary credentials to
   them directly for use with the AWS API.
 
-![]({{site.baseurl}}/images/DSC_1379.jpg)
+![]({{site.baseurl}}/images/DSC_1379.JPG)
 
 A request for `https://aws.example.com/` eventually redirects to the root of the console. A request for `https://aws.example.com/?uri=/ec2/v2/home?region=us-east-1%23Instances:sort=desc:launchTime` redirects to the EC2 console view.
 
