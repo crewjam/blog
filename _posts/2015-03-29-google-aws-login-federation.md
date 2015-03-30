@@ -129,7 +129,7 @@ This is the policy we attach to the user account we create. It prohibits access 
               {
                 "Action": ["cloudformation:*"],
                 "Effect": "Deny",
-                "Resource": {"Fn::Join": ["", ["arn:aws:iam",
+                "Resource": {"Fn::Join": ["", ["arn:aws:iam:",
                   {"Ref": "AWS::Region"}, ":", {"Ref": "AWS::AccountId"}, ":stack/",
                   {"Ref": "AWS::StackName"}, "/*"]]}
               }
