@@ -184,7 +184,7 @@ I considered putting the secrets in an S3 key and restricting access to the key.
   unauthorized users but is a little unfriendly. After carefully considering the
   implications, we might want errors that are a little friendlier.
 
-- There is a public key to decrypt a part of response to the Google OAuth flow. We fetch the public key at startup, but Google rotates it with some regularity so we should fetch it periodically. (This is an honest-to-God bug which I intend to fix soon)
+- There is a public key to verify a part of response to the Google OAuth flow. We fetch the public key at startup, but Google rotates it with some regularity so we should fetch it periodically. (This is an honest-to-God bug which I intend to fix soon)
 
 # Parting thoughts (mini-rant)
 
