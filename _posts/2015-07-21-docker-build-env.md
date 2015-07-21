@@ -113,7 +113,7 @@ RUN npm install -g karma-cli grunt-cli
 RUN /cache/node_modules/bower/bin/bower --allow-root install
 RUN /cache/node_modules/protractor/bin/webdriver-manager update
 
-WORKDIR /go/src/github.com/secureworks/PROJECT
+WORKDIR /go/src/github.com/COMPANY/PROJECT
 {% endhighlight %}
 
 We now have a basic container with all our dependencies in it. Next we need to get it set up to run Docker inside.
@@ -134,7 +134,7 @@ There is a script called [dind](https://github.com/docker/docker/blob/master/hac
 # specified command, or bash if none was specified.
 #
 set -e
-source_root=/go/src/github.com/secureworks/PROJECT
+source_root=/go/src/github.com/COMPANY/PROJECT
 
 . $source_root/build/dind
 
@@ -173,9 +173,9 @@ fi
 So at this point we can get a functional build environment by doing:
 
 {% highlight sh %}
-$ docker build -t secureworks/PROJECT-base ./build
-$ docker run secureworks/PROJECT-base --privileged -it \
-    -v $(pwd):/go/src/github.com/secureworks/PROJECT \
+$ docker build -t COMPANY/PROJECT-base ./build
+$ docker run COMPANY/PROJECT-base --privileged -it \
+    -v $(pwd):/go/src/github.com/COMPANY/PROJECT \
     ./build/run-inside.sh bash
 {% endhighlight %}
 
@@ -215,21 +215,21 @@ base_container_dependencies="\
 base_image_version=$(cat $base_container_dependencies | sha1sum | cut -c-10)
 
 # build the base image but only if needed
-if ! docker inspect secureworks/PROJECT-base:$base_image_version &>/dev/null ; then
+if ! docker inspect COMPANY/PROJECT-base:$base_image_version &>/dev/null ; then
   install -p frontend/package.json build/package.json
   install -p frontend/bower.json build/bower.json
   install -p frontend/.bowerrc build/.bowerrc
 
-  TERM= docker build -t secureworks/PROJECT-base:$base_image_version $source_root/build
+  TERM= docker build -t COMPANY/PROJECT-base:$base_image_version $source_root/build
 fi
 
 docker run --privileged $docker_flags \
-  -v $source_root:/go/src/github.com/secureworks/PROJECT \
+  -v $source_root:/go/src/github.com/COMPANY/PROJECT \
   $dockercfg_volume \
   $docker_ports \
   $docker_env \
   -e ENV_NAME=PROJECT-live \
-  secureworks/PROJECT-base:$base_image_version ./build/run_inside.sh $@
+  COMPANY/PROJECT-base:$base_image_version ./build/run_inside.sh $@
 exit $?
 {% endhighlight %}
 
@@ -288,23 +288,23 @@ In the end I get an environment where the build instructions are stupid simple. 
 
 Our integration tests (which run inside this environment) pull down a variety of docker images and whatnot. Because the inner docker's image cache is empty every time, we have to wait a few minutes for each download. This is annoying and was a big part of the time spent during build/test cycles. Slow builds suck so we have to fix this.
 
-Annoyingly you cannot run docker-in-docker while constructing a container, so instead we do a two stage build. First we construct the image as before except this time it is tagged `secureworks/PROJECT-base-pre:$base_image_version` . Second, we run that image as a new container invoking `./build/warm_image.sh`. When that finishes, we capture the running container as a new image `secureworks/PROJECT-base:$base_image_version`.
+Annoyingly you cannot run docker-in-docker while constructing a container, so instead we do a two stage build. First we construct the image as before except this time it is tagged `COMPANY/PROJECT-base-pre:$base_image_version` . Second, we run that image as a new container invoking `./build/warm_image.sh`. When that finishes, we capture the running container as a new image `COMPANY/PROJECT-base:$base_image_version`.
 
 In `run.sh` we add:
 
 {% highlight sh %}
 # run the warmup script inside the preliminary base image to generate the 
 # actual base image.
-echo "building image secureworks/PROJECT-base:$base_image_version..."
+echo "building image COMPANY/PROJECT-base:$base_image_version..."
 base_build_image_name="PROJECT-base-pre-$base_image_version-$$"
 docker run --privileged $docker_flags \
   --name=$base_build_image_name \
-  -v $source_root:/go/src/github.com/secureworks/PROJECT \
+  -v $source_root:/go/src/github.com/COMPANY/PROJECT \
   $dockercfg_volume \
   $docker_ports \
   $docker_env \
   -e ENV_NAME=PROJECT-pre \
-  secureworks/PROJECT-base-pre:$base_image_version ./build/run_inside.sh \
+  COMPANY/PROJECT-base-pre:$base_image_version ./build/run_inside.sh \
   ./build/warm_image.sh
 docker commit $base_build_image_name crewjam/PROJECT-base:$base_image_version
 docker rm -f $base_build_image_name
@@ -327,7 +327,7 @@ set -ex
 docker pull ubuntu:14.04
 docker pull mysql:latest
 docker pull training/webapp
-docker build -t secureworks/HELPER-1 ./docker/HELPER-1
+docker build -t COMPANY/HELPER-1 ./docker/HELPER-1
 docker build -t crewjam/HELPER-2 ./docker/HELPER-1
 docker build -t crewjam/HELPER-3 ./docker/HELPER-1
 {% endhighlight %}
