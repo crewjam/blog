@@ -1,8 +1,8 @@
 ---
 layout: post
-title: IP_PKTINFO and removing network devices
+title: IP_PKTINFO and removing network devices (Updated)
 description: If you use the IP_PKTINFO flag on your UDP listener, everything breaks when network devices change
-modified: 2015-04-08
+modified: 2015-07-21
 tags: []
 image:
   feature: DSC_0591.JPG
@@ -10,6 +10,8 @@ image:
 ---
 
 You only care about this if Google brought you here and you have this problem.
+
+**Update:** Nick B. sent me an some interesting insights into this problem. Scroll to the end for more
 
 The following sequence of events breaks:
 
@@ -50,4 +52,30 @@ What happens on your system?
 Anybody have any idea what is going on here? Hit me up on twitter, [@crewjam](http://twitter.com/crewjam).
 
 {% gist a7c76f41ee35a82f668d baz.go %}
+
+# Update
+
+Here is a note I got from Nick B. about this post:
+
+> As an aside, I stumbled upon a post you made regarding IP_PKTINFO with an 
+> example Go program. The blocking operation you encountered is due to a
+> change in the way the Linux kernel processes that flag. With IP_PKTINFO, the
+> kernel wil block in skb_recv_datagram. Without the flag, the kernel will
+> enter futex_wait_queue_me which I *think* gets interrupted (i.e., returns
+> EINTR) once the socket is closed. To troubleshoot it further and reproduce
+> the behavior, check the WCHAN status of each task in the Go process once you
+> encounter a point where your program appears hung.
+> 
+> For example, if your program is the process ip-link-test:
+> 
+>     cd /proc/$(pidof ip-link-test)
+>     find task -name wchan -exec cat {} \; -exec echo “ {}” \;
+> 
+> You’ll see which syscall each task is in (if any) and the task making it.
+> 
+> I think some user-space programs - top and htop maybe - can show the wchan
+> of a process as well.
+
+We've worked around this problem other ways, so I haven't tried this, but I'm sharing in case this is helpful to someone else encountering it. Thanks Nick!
+
 
