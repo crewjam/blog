@@ -2,6 +2,7 @@ baseurl = "http://crewjam.com/"
 languageCode = "en-US"
 paginate = 500
 copyright = "© 2015 Ross Kinder."
+title = "crewjam.com"
 
 [params]
 description = "and also some stuff about security"
