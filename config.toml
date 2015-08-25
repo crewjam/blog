@@ -1,0 +1,20 @@
+baseurl = "http://crewjam.com/"
+languageCode = "en-US"
+paginate = 500
+copyright = "© 2015 Ross Kinder."
+
+[params]
+description = "and also some stuff about security"
+cover = "images/933188904_b55c4ba0a4_b_d.jpg"
+author = "Ross Kinder"
+authorlocation = "Ann Arbor, Michigan"
+authorwebsite = "http://crewjam.com"
+bio = "security guy. blue team."
+logo = "images/avatar2.jpg"
+googleAnalyticsUserID = "UA-60540501-1"
+githubName = "crewjam"
+twitterName = "crewjam"
+hideHUGOSupport = true
+
+[permalinks]
+  post = "/:slug/"

@@ -1,0 +1,47 @@
+{{ partial "header.html" . }}
+{{ $baseurl := .Site.BaseURL }}
+
+
+<section id="intro" class="post-intro" style="background-image: url({{ $baseurl }}{{.Params.image}})">
+  {{ partial "avatar.html" . }}
+  <div class="hero-unit">
+  </div>
+  <div class="clearfix"></div>
+</section>
+
+  <article class="post {{ .Section }}">
+    <header>
+      <h1 class="page-title">{{.Title}}</h1>
+      <h2>{{.Description}}</h2>
+    </header>
+    <section class="post-content">
+      {{ .Content }}
+    </section>
+
+  <footer class="post-footer text-center">
+    Updated 
+    <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+      {{ .Date.Format "Jan 2, 2006" }}
+    </time>
+    By
+    <author>Ross Kinder</author>
+
+    <section class="share">
+      <a href="https://twitter.com/share?text={{ .Title | safeHTML}}&amp;url={{ .Permalink }}"
+          onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <i class="fa fa-twitter"></i> tweet
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
+          onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <i class="fa fa-facebook"></i> like
+      </a>
+      <a href="https://plus.google.com/share?url={{ .Permalink }}"
+         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <i class="fa fa-google-plus"></i> +1
+      </a>
+    </section>
+  </footer>
+</article>
+
+</main>
+{{ partial "footer.html" . }}

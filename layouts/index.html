@@ -1,0 +1,39 @@
+{{ partial "header.html" . }}
+{{ $baseurl := .Site.BaseURL }}
+
+<section id="intro" data-speed="6" data-type="background">
+	{{ partial "avatar.html" . }}
+	<div class="hero-unit">
+		<h1 class="page-title">crewjam</h1>
+		<h3>in which the crew rocks out before the house opens</h3>
+		<h2>and also some stuff about security</h2>
+	</div>
+	<div class="clearfix"></div>
+</section>
+
+<!--
+	<div class="col s4 m4 card" style="height: 645px;"><a class="twitter-timeline" href="https://twitter.com/crewjam" data-widget-id="635927913657843713">Tweets by @crewjam</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+</div>
+-->
+
+<section id="articles" data-speed="6" data-type="background">
+<div class="row article-ul">
+{{ $paginator := .Paginator }}
+{{ range $index, $page := $paginator.Pages }}
+  <div class="col-xs-2 col-sm-3">
+    <div class="thumbnail">
+      <a href="{{ .RelPermalink }}">
+	      <img class="media-object img-circle article-img" src="{{ $baseurl }}{{.Params.image}}" alt="...">
+	  </a>
+      <div class="caption">
+        <h4>{{ .Title }}</h4>
+        <p>{{ .Summary }}</p>
+      </div>
+    </div>
+  </div>
+{{ end }}
+</div>
+</section>
+
+{{ partial "footer.html" . }}

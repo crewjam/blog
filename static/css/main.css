@@ -1,0 +1,165 @@
+
+body {
+  background: url('http://crewjam.com/images/witewall_3.png');
+}
+
+#intro {
+  background: url('/images/933188904_b55c4ba0a4_b_d.jpg');
+  background-size: cover;
+}
+
+h1, h3, h5 {
+  font-family: "Lobster Two";
+}
+
+h2, h4, h6, .avatar {
+    font-family: "Lora",serif;
+}
+
+h1.page-title {
+  font-size: 100pt;
+}
+
+#intro {
+  color: #fff;
+  padding: 20px;
+}
+
+.avatar {
+  background: rgba(0, 0, 0, 0.51);
+  padding: 10px;
+  width: 230px;
+  margin-right: 20px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.075);
+  box-shadow: 0 1px 2px rgba(0,0,0,.075);
+}
+.avatar img {
+  height: 200px; 
+  width: 200px; 
+  border-radius: 100px;
+}
+.avatar ul {
+  padding-left: 20px;
+}
+.avatar li {
+  font-size: 20pt;
+  color: #fff;
+}
+.avatar li a {
+  font-size: 17pt;
+  color: #fff;
+}
+
+.article-li {
+  background: #fff;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 20px;
+}
+
+#articles {
+  padding: 20px;
+  margin-left: 250px;
+}
+
+#articles .thumbnail {
+  height: 400px; 
+  overflow: hidden;
+}
+
+#articles img {
+  width: 171px; 
+  height: 180px;
+}
+
+.post-intro h1 {
+  font-size: 60pt;
+}
+
+.post {
+  background: #fff;
+  margin-left: 250px;
+  margin-right: 100px;
+  margin-top: 60px;
+}
+
+.post header {
+  background: #DEDEDE;
+  padding: 20px;
+  border-bottom: 1px solid #aaa;
+}
+.post header h1 {
+  font-size: 40pt;
+}
+.post header h2 {
+  font-size: 20pt;
+}
+
+.post-content {
+  padding: 20px;
+  font-family: "Lora";
+  font-size: 12pt;
+  line-height: 1.4em;
+}
+
+.post-content img {
+  max-width: 100%;
+  padding: 15px;
+  margin: 15px;
+}
+
+.post-content p {
+  margin-top: 20px;
+}
+
+.post-content h1, .post-content h3, .post-content h5 {
+  font-family: "Lora";
+}
+.post-content h1 {
+  font-size: 18pt;
+}
+
+.post footer {
+  margin-top: 50px;
+}
+
+.post footer,
+.post footer a {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: rgba(187,187,187,0.8);
+}
+.share a {
+  padding: 20px;
+}
+
+code, tt {
+  background: inherit;
+  color: inherit;
+}
+
+/*
+
+
+
+
+.index {
+    background: url('/images/933188904_b55c4ba0a4_b_d.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.card-image img {
+	width: 287px;
+	height: 430px;
+}
+
+.card-content {
+	height: 215px;
+}
+*/
+
+h1 
