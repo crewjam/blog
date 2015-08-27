@@ -15,15 +15,13 @@
 </section>
 
 <!--
-	<div class="col s4 m4 card" style="height: 645px;"><a class="twitter-timeline" href="https://twitter.com/crewjam" data-widget-id="635927913657843713">Tweets by @crewjam</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+	<div class="col s4 m4 card" style="height: 645px;"></div>
 </div>
 -->
 
 <section id="articles" data-speed="6" data-type="background">
 <div class="row article-ul">
-{{ $paginator := .Paginator }}
-{{ range $index, $page := $paginator.Pages }}
+{{ range where .Data.Pages "Section" "post" }}
   <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
     <div class="thumbnail">
       <a href="{{ .RelPermalink }}">
@@ -37,6 +35,29 @@
   </div>
 {{ end }}
 </div>
+
+<div class="row article-ul">
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+  	<div class="thumbnail">
+	  	<div class="caption">
+	  		<h4>Notes</h4>
+	  		<p>Random notes that might be useful, but probably are not.</p>
+			<ul>
+	  		{{ range where .Data.Pages "Section" "note" }}
+	  			<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+			{{ end }}
+	  		</ul>
+	  </div>
+	</div>
+  </div>
+
+  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+  	<div class="thumbnailxxx">
+       <a class="twitter-timeline" href="https://twitter.com/crewjam" data-widget-id="635927913657843713">Tweets by @crewjam</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  	</div>
+  </div>
+
 </section>
 
 {{ partial "footer.html" . }}
