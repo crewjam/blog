@@ -33,7 +33,7 @@ Our primary make target `ephdisk` is constructed by running a docker image `gola
 
 The only dependencies we have on the host system are *make* and *docker*. The build instructions are "run `make`". Easy peasy.
 
-<img src="http://stream1.gifsoup.com/view4/1896021/sasuke-s-easy-button-o.gif">
+<img src="/images/sasuke-s-easy-button-o.gif">
 
 # A more complex example
 
