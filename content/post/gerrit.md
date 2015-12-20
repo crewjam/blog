@@ -1,6 +1,5 @@
 +++
 date = "2015-08-27T16:06:56-07:00"
-draft = true
 title = "Gerrit Code Review"
 description = "How and why we use Gerrit"
 image = "/images/Landscape_01.jpg"
