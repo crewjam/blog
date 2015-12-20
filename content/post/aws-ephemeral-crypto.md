@@ -81,7 +81,7 @@ Consider the risk that a malicious employee of Amazon steals your data.
 
 Insider threat exists in all networks. The important question to consider is not "am I vulnerable to an insider?" -- that answer always "yes." A better question is "am I *more* vulnerable to insider threat in AWS than in my datacenter?" The answer to that is a little more interesting...
 
-<img style="float: right; width: 400px; padding-left: 20px;" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/RFControlPanel2.jpg/299px-RFControlPanel2.jpg" />
+<img style="float: right; width: 400px; padding-left: 20px;" src="/images/299px-RFControlPanel2.jpg" />
 
 If you are using AWS for data processing, the CPUs will need access to unencrypted data (setting aside boring use cases like blind storage, or fancy impractical things like [homomorphic encryption](http://www.wired.com/2014/11/hacker-lexicon-homomorphic-encryption/)). So however you organize it, the key or key-equivalent to decrypt your data must be accessible to the CPUs doing the work.
 
@@ -99,7 +99,7 @@ Bottom line we can't really mitigate insider threat with volume encryption. But 
 
 # A careless insider at AWS
 
-<img style="float: right; width: 400px; padding-left: 20px;" src="http://cdn.thewire.com/img/upload/2012/10/17/rendered/88b5821e80b3b19f9813bd0c5d9919d9_623x412.jpg" />
+<img style="float: right; width: 400px; padding-left: 20px;" src="/images/88b5821e80b3b19f9813bd0c5d9919d9_623x412.jpg" />
 
 What about the risk of carelessness by AWS? They say disks don't leave their datacenters, but what if that is more aspirational than descriptive? [^caveat]
 
