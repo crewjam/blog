@@ -3,7 +3,7 @@ layout = "post"
 title = "IP_PKTINFO and removing network devices (Updated)"
 description = "If you use the IP_PKTINFO flag on your UDP listener, everything breaks when network devices change"
 date = "2015-04-08"
-image = "images/DSC_0591.JPG"
+image = "/images/DSC_0591.JPG"
 +++
 
 If you use the IP_PKTINFO flag on your UDP listener, everything breaks when network devices change

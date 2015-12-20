@@ -1,4 +1,4 @@
-baseurl = "http://crewjam.com/"
+baseurl = ""
 languageCode = "en-US"
 paginate = 500
 copyright = "© 2015 Ross Kinder."

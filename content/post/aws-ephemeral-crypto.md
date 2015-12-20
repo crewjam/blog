@@ -2,7 +2,7 @@
 date = "2015-03-06T00:00:00"
 title = "Ephemeral Encryption in AWS"
 description = "in which we throw away our private keys"
-image = "images/Padlocks_sign_nseoultower.jpg"
+image = "/images/Padlocks_sign_nseoultower.jpg"
 layout = "post"
 slug = "aws-ephemeral-crypto"
 +++

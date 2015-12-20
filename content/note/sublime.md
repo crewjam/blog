@@ -1,6 +1,5 @@
 +++
 date = "2015-08-27T14:14:44-07:00"
-draft = false
 title = "Sublime Text Configuration & Notes"
 image = "/images/background-64258_1280.jpg"
 +++

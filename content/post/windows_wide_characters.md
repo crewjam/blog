@@ -2,7 +2,7 @@
 date = "2015-03-06T08:45:22-07:00"
 title = "Whats in a (Windows) name?"
 description = "in which we introduce an encoding scheme for Windows names"
-image = "images/3514279453_8372f71a19_o.jpg"
+image = "/images/3514279453_8372f71a19_o.jpg"
 layout = "post"
 +++
 

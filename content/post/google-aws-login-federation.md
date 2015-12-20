@@ -3,7 +3,7 @@ layout = "post"
 title = "Using Google Apps to log in to AWS"
 description = "In which we point that maintaining user accounts sucks, avoiding it is hard, and share a tool to make it a tiny bit easier"
 date = "2015-03-29"
-image = "images/Herakles_Kerberos_Eurystheus_Louvre_E701.jpg"
+image = "/images/Herakles_Kerberos_Eurystheus_Louvre_E701.jpg"
 +++
 
 In which we point that maintaining user accounts sucks, avoiding it is hard, and share [a tool to make it a tiny bit easier](https://github.com/crewjam/awsconsoleauth) (I hope).
