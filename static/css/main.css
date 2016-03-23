@@ -36,8 +36,8 @@ h1.page-title {
   box-shadow: 0 1px 2px rgba(0,0,0,.075);
 }
 .avatar img {
-  height: 200px; 
-  width: 200px; 
+  height: 200px;
+  width: 200px;
   border-radius: 100px;
 }
 .avatar ul {
@@ -65,12 +65,12 @@ h1.page-title {
 }
 
 #articles .thumbnail {
-  height: 400px; 
+  height: 400px;
   overflow: hidden;
 }
 
 #articles img {
-  width: 171px; 
+  width: 171px;
   height: 180px;
 }
 
@@ -108,7 +108,7 @@ h1.page-title {
   padding: 20px;
   font-family: "Lora";
   font-size: 12pt;
-  line-height: 1.4em;
+  line-height: 1.5em;
 }
 
 .post-content img {
@@ -126,6 +126,52 @@ h1.page-title {
 }
 .post-content h1 {
   font-size: 18pt;
+}
+
+.post-content li {
+  margin-top: 8px;
+}
+
+.post-content table {
+  margin: 20px;
+}
+
+.post-content table td, th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.post-content table th {
+  border-bottom: double black;
+}
+
+.post-content table th {
+  border-top: none;
+}
+
+.post-content table tr:first-child td {
+  border-top: 1px double black;
+}
+
+.post-content table td:first-child, table th:first-child {
+  border-left: none;
+}
+.post-content table td:last-child, table th:last-child {
+  border-right: none;
+}
+
+
+
+.post-content pre[class*=language-] {
+  padding: 0px;
+}
+.post-content pre[class*=language-]>code[data-language] {
+  padding: 13px;
+  max-height: inherit;
+  overflow: inherit;
+}
+.post-content  pre[class*=language-]>code[data-language]::before {
+  display: none;
 }
 
 .post footer {

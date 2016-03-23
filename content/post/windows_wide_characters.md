@@ -26,7 +26,7 @@ What is really going on here? Let's write a little test program to find out.
 
 The bubble says that `<` is not allowed in filenames so lets see what happens when we try to create a file with `<` in it.
 
-{{< highlight cpp >}}
+~~~cpp
 // cl test.cc & test.exe
 #include <windows.h>
 #include <stdio.h>
@@ -40,7 +40,7 @@ int main() {
   FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL, lastError, 0, (LPTSTR) &lastErrorString, 0, NULL);
   printf("error: %d %s\n", lastError, lastErrorString);
 }
-{{< /highlight >}}
+~~~
 
 This program produces:
 
@@ -52,10 +52,10 @@ If you try to create a file with an invalid name Windows returns `ERROR_INVALID_
 
 Even though it is invalid, procmon is telling us the path we *attempted* to open. Lets try creating a file named 你好世界.
 
-{{< highlight cpp >}}
+~~~cpp
 wchar_t path[5] = {0x4F60, 0x597D, 0x4E16, 0x754C, 0x0};
 CreateFileW(path, GENERIC_WRITE, 0, NULL, CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
-{{< /highlight >}}
+~~~
 
 ![](/images/procmon3.png)
 
@@ -65,10 +65,10 @@ What happens if we try to create a file called `foo\nbar`? [^newline]
 
 [^newline]: To be clear, I'm talking about a 7-character string here: "foo", the newline character, and "bar"
 
-{{< highlight cpp >}}
+~~~cpp
 wchar_t path[] = L"foo\nbar";
 CreateFileW(path, GENERIC_WRITE, 0, NULL, CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
-{{< /highlight >}}
+~~~
 
 This program produces
 
@@ -84,10 +84,10 @@ Oops! Procmon didn't render the newline at all.
 
 UTF-16 code points [between 0xd800 and 0xdfff are invalid](http://en.wikipedia.org/wiki/UTF-16#U.2BD800_to_U.2BDFFF). Let's see what happens if we try to create a file with invalid UTF-16.
 
-{{< highlight cpp >}}
+~~~cpp
 wchar_t path[2] = {0xd801, 0x0000};
 CreateFileW(path, GENERIC_WRITE, 0, NULL, CREATE_NEW, FILE_ATTRIBUTE_NORMAL, NULL);
-{{< /highlight >}}
+~~~
 
 This program produces
   
@@ -135,7 +135,7 @@ For values <= 0xff, quoted-wide escapes exactly the same values as quoted-printa
 
 Here is an encoder in Python:
 
-``` python
+~~~python
 import re
 
 def QuotedWideEncode(input_):
@@ -156,7 +156,7 @@ def QuotedWideDecode(input_):
     else:
       rv.append(unichr(int(part[1:], 16)))
   return u"".join(rv) 
-```
+~~~
 
 ## So what?
 

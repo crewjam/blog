@@ -31,7 +31,7 @@ Our app is hosted entirely in AWS. We receive data there, store it there and dis
 
 To protect the data at rest at on these instances, we create an encrypted volume and discard the key. This is from the code that runs when one of our instances first boots:
 
-```python
+~~~python
 from Crypto.PublicKey import RSA
 from Crypto import Random
 
@@ -61,7 +61,7 @@ subprocess.check_call("echo {passphrase} | cryptsetup luksOpen "
 print "creating filesystem on /dev/mapper/ephemeral-encrypted"
 subprocess.check_call(["mkfs", "-t", "ext4", "-T", "largefile4",
   "-F", "/dev/mapper/ephemeral-encrypted"])
-```
+~~~
 
 When we first started doing this I was nervous about cases where we'd need the key again, so I generated an RSA key-pair to escrow the volume key and kept the private part in a safe. These days we are confident enough in our approach that we don't need to escrow the volume key any more.
 
