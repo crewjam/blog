@@ -2,7 +2,7 @@
 date = "2015-08-26T17:59:12-07:00"
 title = "Yubikey for Local Authentication on Mac"
 description = "how I set up OS X to require a Yubikey for local login"
-image = "/images/key.jpg"
+image = "images/key.jpg"
 +++
 
 How I set up OS X to require a Yubikey for local login.
