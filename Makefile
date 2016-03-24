@@ -6,7 +6,7 @@ HUGO := $(HOME)/go/bin/hugo
 
 all: dist
 
-serve thumbs images:
+serve: thumbs images
 	$(HUGO) server --watch --buildDrafts
 
 dist: thumbs images
