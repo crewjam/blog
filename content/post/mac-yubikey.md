@@ -1,13 +1,25 @@
 +++
 date = "2015-08-26T17:59:12-07:00"
 title = "Yubikey for Local Authentication on Mac"
-description = "how I set up OS X to require a Yubikey for local login"
+description = "(broken) How I set up OS X to require a Yubikey for local login"
 image = "/images/key.jpg"
 +++
 
-How I set up OS X to require a Yubikey for local login.
+How I set up OS X to require a Yubikey for local login. (Obsolete)
 
 <!--more-->
+
+# Update
+
+So funny story. I set all this up, and then one day I forgot my Yubikey and needed to get into the computer. 
+
+There is no better test of your own security than getting locked out by your own security.
+
+So it turns out that I hadn't really thought this through. You can get into single user mode (or whatever Mac OS calls it) with just a password and from there change the config to disable the yubikey module.
+
+I'm leaving this here for posterity, but don't do it. It's pointless.
+
+------
 
 A YubiKey is a small hardware device that offers two-factor authentication with a simple touch of a button. It appears like a USB human interface device (read: keyboard) and under normal conditions, when you press the button, it emits some random characters as if you typed them.
 
