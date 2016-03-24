@@ -1,7 +1,7 @@
 baseurl = "https://crewjam.com"
 languageCode = "en-US"
 paginate = 500
-copyright = "© 2015 Ross Kinder."
+copyright = "© 2016 Ross Kinder."
 title = "crewjam.com"
 
 [params]
